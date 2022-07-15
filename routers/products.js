@@ -114,7 +114,7 @@ router.get('/get/count',async (req,res)=>{
 });
 
 //API for getting featured products 
-router.get('/get/feature',async (req,res)=>{
+router.get('/get/featured',async (req,res)=>{
     const produtFeatured= await Product.find({isFeatured:true})
     if(!produtFeatured){
         res.status(500).json({success:false})

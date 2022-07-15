@@ -14,7 +14,7 @@ router.get(`/`,async (req,res)=>{
      
  })
 //get category by id.
- router.get(':id',async (req,res)=>{
+ router.get('/:id',async (req,res)=>{
      const category=await Category.findById(req.params.id);
 
      if(!category){
