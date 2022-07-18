@@ -9,13 +9,15 @@
          isRevoked:isRevoked
      }).unless({
         path:[
-            {url:/\api\/v1\/products{.*}/,methods:['GET','OPTIONS']},
+            {url:/\api\/v1\/uploads{.*}/,methods:['GET','OPTIONS']},
             {url:/\api\/v1\/categories{.*}/,methods:['GET','OPTIONS']},
-            `${api}/users/login`
+            {url:/\api\/v1\/products{.*}/,methods:['GET','OPTIONS']},
+            `${api}/users/login`,
+            `${api}/users/register`
         ]
      })
  }
-
+//these are the paths which user can access without authentication.
 async function isRevoked(req,payload,done){
       if(!payload.isAdmin){
         done(null,true)
